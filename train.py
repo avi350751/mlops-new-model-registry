@@ -32,7 +32,7 @@ grid_search = GridSearchCV(estimator=rf, param_grid= param_grid, cv=5, n_jobs=-1
 
 mlflow.set_experiment('diabetes-rf-hp')
 
-with mlflow.start_run(run_name='avi-grid-search-exp', description = 'Best hyperparameter trained on RF model') as parent:
+with mlflow.start_run(run_name='avi-grid-search-exp1', description = 'Best hyperparameter trained on RF model') as parent:
 	grid_search.fit(X_train, y_train)
 
 	# log all the children runs
