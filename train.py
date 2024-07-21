@@ -23,8 +23,8 @@ rf = RandomForestClassifier(random_state=42)
 
 # Defining the parameters for 
 param_grid = {
-		'n_estimators': [10,50,100],
-		'max_depth' : [None, 10,20,30]
+		'n_estimators': [5,10,30,50,100],
+		'max_depth' : [None, 10,20,30,40]
 }
 
 # Applying GridSearchCV
@@ -69,8 +69,8 @@ with mlflow.start_run(run_name='avi-grid-search-exp1', description = 'Best hyper
 	mlflow.log_artifact(__file__)
 
 # model
+	#signature = mlflow.models.infer_signature(X_train, grid_search.best_estimator_.predict(X_))
 	mlflow.sklearn.log_model(grid_search.best_estimator_,'random_forest')
-
 # tags
 	mlflow.set_tag('author','avi')
 	mlflow.set_tag('model','random_forest')
