@@ -24,7 +24,7 @@ rf = RandomForestClassifier(random_state=42)
 # Defining the parameters for 
 param_grid = {
 		'n_estimators': [5,10,30,50,100],
-		'max_depth' : [None, 10,20,30,40]
+		'max_depth' : [None, 3,6,8,10]
 }
 
 # Applying GridSearchCV
